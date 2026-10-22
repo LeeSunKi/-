@@ -1,9 +1,47 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>썸네일 딸깍이 — 이미지 리사이저</title>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>썸네일 딸깍이 v2 — 이미지 리사이저</title>
 <style>
-:root{--bg:#f5f6f8;--panel:#fff;--ink:#20242b;--muted:#737b88;--line:#e6e8ed;--accent:#6558e8;--soft:#eeecff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 12px;color:var(--ink)}button:hover{border-color:#b7b2f6}button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}button:disabled{opacity:.45;cursor:not-allowed}.app{min-height:100vh;display:grid;grid-template-columns:230px 1fr}.side{background:#fff;border-right:1px solid var(--line);padding:23px 16px}.brand{font-size:17px;font-weight:800;letter-spacing:-.5px;margin:0 0 28px}.brand span{color:var(--accent)}.navlabel{font-size:11px;text-transform:uppercase;color:#9aa0aa;letter-spacing:1px;margin:22px 10px 8px}.nav{padding:10px;border-radius:9px;color:#59606c;margin:3px 0}.nav.active{background:var(--soft);color:var(--accent);font-weight:700}.side-note{font-size:12px;color:var(--muted);line-height:1.6;margin:28px 8px}.main{min-width:0;padding:28px clamp(16px,3vw,42px)}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:24px}.eyebrow{color:var(--muted);font-size:12px;margin-bottom:5px}.top h1{font-size:25px;letter-spacing:-.8px;margin:0}.actions{display:flex;gap:8px;flex-wrap:wrap}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}.left{min-width:0}.drop{background:#fff;border:1.5px dashed #cdd0da;border-radius:14px;padding:25px 16px;text-align:center;margin-bottom:18px;transition:.15s}.drop.drag{border-color:var(--accent);background:#f4f2ff}.drop .symbol{width:42px;height:42px;border-radius:12px;background:var(--soft);color:var(--accent);display:grid;place-items:center;margin:0 auto 10px;font-size:22px}.drop strong{display:block;font-size:15px;margin-bottom:4px}.drop p{color:var(--muted);margin:0 0 14px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:10px 0 12px}.toolbar strong{font-size:14px}.toolbar small{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.asset{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0}.asset.selected{border:2px solid var(--accent)}.thumb{height:180px;background:#eceef2;display:grid;place-items:center;position:relative;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:contain}.check{position:absolute;top:9px;left:9px;background:#fff;border-radius:6px;padding:3px 6px;box-shadow:0 1px 4px #0001}.assetinfo{padding:11px}.filename{font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{color:var(--muted);font-size:12px;margin:4px 0 10px}.assetbuttons{display:flex;gap:6px}.assetbuttons button{padding:6px 8px;font-size:12px;flex:1}.settings{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;position:sticky;top:16px}.settings h2{font-size:16px;margin:0 0 16px}.group{border-top:1px solid var(--line);padding:15px 0}.group:first-of-type{border-top:0;padding-top:0}.label{font-weight:700;font-size:12px;display:block;margin-bottom:8px}.platforms{display:grid;grid-template-columns:1fr 1fr;gap:7px}.platform{font-size:12px;text-align:left;padding:9px}.platform b{display:block;font-size:13px;margin-bottom:2px}.platform.active{background:var(--soft);border-color:#c5bfff;color:var(--accent)}.dimensions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field{display:flex;flex-direction:column;gap:5px}.field span{font-size:11px;color:var(--muted)}input[type=number],select{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;background:#fff;color:var(--ink)}.modes{display:flex;flex-direction:column;gap:7px}.mode{display:flex;align-items:flex-start;gap:8px;border:1px solid var(--line);padding:10px;border-radius:9px;cursor:pointer}.mode input{margin-top:3px;accent-color:var(--accent)}.mode b{display:block;font-size:12px}.mode small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.rangehead{display:flex;justify-content:space-between;font-size:12px;margin-bottom:8px}.rangehead span:last-child{color:var(--accent);font-weight:700}input[type=range]{width:100%;accent-color:var(--accent)}.qualitynote{font-size:11px;color:var(--muted);margin-top:5px}.savepreset{display:flex;gap:7px}.savepreset input{min-width:0;flex:1;border:1px solid var(--line);border-radius:8px;padding:9px}.presetlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.presetchip{font-size:11px;padding:6px 8px}.footerbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:18px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:12px}.footerbar span{font-size:12px;color:var(--muted)}.empty{padding:40px 10px;text-align:center;color:var(--muted);grid-column:1/-1}.status{font-size:12px;color:var(--muted);margin-top:10px;min-height:18px}.hidden{display:none!important}.preview-modal{position:fixed;inset:0;background:#17192333;z-index:20;display:grid;place-items:stretch end;padding:0;pointer-events:none}.preview-panel{pointer-events:auto;background:#fff;border-radius:16px 0 0 16px;width:min(860px,78vw);height:100vh;max-height:100vh;overflow:auto;padding:22px;box-shadow:0 0 50px #0002}.preview-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.preview-head h2{font-size:18px;margin:0}.preview-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}.preview-card{border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}.preview-card h3{font-size:13px;margin:0 0 10px}.preview-stage{height:min(52vh,460px);background:repeating-conic-gradient(#f0f1f4 0% 25%,#fff 0% 50%) 50%/18px 18px;border-radius:8px;display:grid;place-items:center;overflow:hidden}.preview-stage img{max-width:100%;max-height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}.original-stage{position:relative;display:flex;align-items:center;justify-content:center;touch-action:none}.crop-selection{position:absolute;border:2px solid #8b7dff;background:#6558e822;box-shadow:0 0 0 9999px #0008;pointer-events:auto;cursor:move;display:none;touch-action:none}.crop-selection:after{content:"";position:absolute;inset:0;background:linear-gradient(to right,transparent 33%,#ffffff66 33%,#ffffff66 33.5%,transparent 33.5%,transparent 66%,#ffffff66 66%,#ffffff66 66.5%,transparent 66.5%),linear-gradient(to bottom,transparent 33%,#ffffff66 33%,#ffffff66 33.5%,transparent 33.5%,transparent 66%,#ffffff66 66%,#ffffff66 66.5%,transparent 66.5%)}.preview-stage canvas{max-width:100%;max-height:100%;object-fit:contain;touch-action:none;cursor:grab}.preview-stage canvas.dragging{cursor:grabbing}.preview-meta{font-size:12px;color:var(--muted);margin-top:9px}.preview-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}.preview-controls span{color:var(--muted);font-size:12px}@media(max-width:700px){.preview-panel{width:100vw;border-radius:0;padding:14px}.preview-columns{grid-template-columns:1fr}.preview-stage{height:32vh}}@media(max-width:1050px){.workspace{grid-template-columns:1fr}.settings{position:static}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.app{grid-template-columns:180px 1fr}}@media(max-width:700px){.app{display:block}.side{display:none}.main{padding:18px 12px}.top{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.thumb{height:150px}.settings{margin-top:16px}.footerbar{align-items:flex-start;flex-direction:column}}
+:root{--bg:#f5f6f8;--panel:#fff;--ink:#20242b;--muted:#737b88;--line:#e6e8ed;--accent:#6558e8;--soft:#eeecff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 12px;color:var(--ink);transition:.2s}button:hover{border-color:#b7b2f6}button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}button:disabled{opacity:.45;cursor:not-allowed}.app{min-height:100vh;display:grid;grid-template-columns:230px 1fr}.side{background:#fff;border-right:1px solid var(--line);padding:23px 16px}.brand{font-size:17px;font-weight:800;letter-spacing:-.5px;margin:0 0 28px}.brand span{color:var(--accent)}.navlabel{font-size:11px;text-transform:uppercase;color:#9aa0aa;letter-spacing:1px;margin:22px 10px 8px}.nav{padding:10px;border-radius:9px;color:#59606c;margin:3px 0}.nav.active{background:var(--soft);color:var(--accent);font-weight:700}.side-note{font-size:12px;color:var(--muted);line-height:1.6;margin:28px 8px}.main{min-width:0;padding:28px clamp(16px,3vw,42px)}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:24px}.eyebrow{color:var(--muted);font-size:12px;margin-bottom:5px}.top h1{font-size:25px;letter-spacing:-.8px;margin:0}.actions{display:flex;gap:8px;flex-wrap:wrap}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}.left{min-width:0}.drop{background:#fff;border:1.5px dashed #cdd0da;border-radius:14px;padding:25px 16px;text-align:center;margin-bottom:18px;transition:.15s}.drop.drag{border-color:var(--accent);background:#f4f2ff}.drop .symbol{width:42px;height:42px;border-radius:12px;background:var(--soft);color:var(--accent);display:grid;place-items:center;margin:0 auto 10px;font-size:22px}.drop strong{display:block;font-size:15px;margin-bottom:4px}.drop p{color:var(--muted);margin:0 0 14px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:10px 0 12px}.toolbar strong{font-size:14px}.toolbar small{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.asset{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0;cursor:pointer;transition:.2s}.asset:hover{border-color:#cdd0da}.asset.selected{border:2px solid var(--accent)}.thumb{height:180px;background:#eceef2;display:grid;place-items:center;position:relative;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:contain}.check{position:absolute;top:9px;left:9px;background:#fff;border-radius:6px;padding:3px 6px;box-shadow:0 1px 4px #0001}.assetinfo{padding:11px}.filename{font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{color:var(--muted);font-size:12px;margin:4px 0 10px}.assetbuttons{display:flex;gap:6px}.assetbuttons button{padding:6px 8px;font-size:12px}.btn-remove{flex:0 0 40px;color:#d63030;font-weight:700}.btn-remove:hover{background:#fff5f5;border-color:#ffcccc}.assetbuttons .primary{flex:1}.settings{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto}.settings h2{font-size:16px;margin:0 0 16px}.group{border-top:1px solid var(--line);padding:15px 0}.group:first-of-type{border-top:0;padding-top:0}.label{font-weight:700;font-size:12px;display:block;margin-bottom:8px}.platforms{display:grid;grid-template-columns:1fr 1fr;gap:7px}.platform{font-size:12px;text-align:left;padding:9px}.platform b{display:block;font-size:13px;margin-bottom:2px}.platform.active{background:var(--soft);border-color:#c5bfff;color:var(--accent)}.dimensions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field{display:flex;flex-direction:column;gap:5px}.field span{font-size:11px;color:var(--muted)}input[type=number],select{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;background:#fff;color:var(--ink)}.modes{display:flex;flex-direction:column;gap:7px}.mode{display:flex;align-items:flex-start;gap:8px;border:1px solid var(--line);padding:10px;border-radius:9px;cursor:pointer}.mode input{margin-top:3px;accent-color:var(--accent)}.mode b{display:block;font-size:12px}.mode small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.rangehead{display:flex;justify-content:space-between;font-size:12px;margin-bottom:8px}.rangehead span:last-child{color:var(--accent);font-weight:700}input[type=range]{width:100%;accent-color:var(--accent)}.qualitynote{font-size:11px;color:var(--muted);margin-top:5px}.savepreset{display:flex;gap:7px}.savepreset input{min-width:0;flex:1;border:1px solid var(--line);border-radius:8px;padding:9px}.presetlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.presetchip{font-size:11px;padding:6px 8px}.footerbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:18px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:12px}.footerbar span{font-size:13px;color:var(--muted)}.empty{padding:40px 10px;text-align:center;color:var(--muted);grid-column:1/-1}.status{display:none}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:12px 24px;border-radius:30px;font-size:14px;font-weight:600;box-shadow:0 8px 24px #0003;z-index:100;opacity:0;transition:.3s cubic-bezier(.2,0,0,1);pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.hidden{display:none!important}
 
-/* 썸네일 딸깍이 다크 테마 */
+/* Dedicated Editor Modal UX */
+.editor-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: .25s ease; padding: 20px; }
+.editor-modal.show { opacity: 1; pointer-events: auto; }
+.editor-box { background: var(--bg); width: 100%; max-width: 1400px; height: 95vh; border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 24px 48px rgba(0,0,0,0.3); transform: translateY(15px) scale(0.98); transition: .3s cubic-bezier(.2,0,0,1); }
+.editor-modal.show .editor-box { transform: translateY(0) scale(1); }
+.editor-head { background: var(--panel); border-bottom: 1px solid var(--line); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+.editor-head h2 { margin: 0; font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.editor-head h2 span { color: var(--accent); }
+.editor-body { flex: 1; display: grid; grid-template-columns: 1fr 340px; min-height: 0; }
+.editor-stage-area { display: flex; flex-direction: column; gap: 20px; padding: 24px; overflow-y: auto; }
+.editor-stage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; min-height: 400px; }
+.editor-sidebar { background: var(--panel); border-left: 1px solid var(--line); padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; }
+
+.preview-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; }
+.preview-card h3 { font-size: 14px; margin: 0 0 12px; color: var(--ink); display: flex; align-items: center; justify-content: space-between; }
+.preview-stage { flex: 1; background: repeating-conic-gradient(#f0f1f4 0% 25%,#fff 0% 50%) 50%/18px 18px; border-radius: 8px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); position: relative; min-height: 250px; }
+.preview-stage img, .preview-stage canvas { max-width: 100%; max-height: 100%; object-fit: contain; }
+.preview-meta { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: center; }
+
+.original-stage { position: relative; display: flex; align-items: center; justify-content: center; touch-action: none; }
+.crop-selection { position: absolute; border: 2px solid #8b7dff; background: #6558e822; box-shadow: 0 0 0 9999px #0008; pointer-events: auto; cursor: move; display: none; touch-action: none; }
+
+.control-block { display: flex; flex-direction: column; gap: 12px; }
+.control-title { font-size: 13px; font-weight: 700; border-bottom: 1px solid var(--line); padding-bottom: 8px; display:flex; justify-content:space-between; align-items:center; }
+.filter-slider { display: flex; align-items: center; gap: 12px; }
+.filter-slider span { font-size: 12px; width: 40px; color: var(--muted); }
+.filter-slider input { flex: 1; }
+.btn-apply-all { font-size: 12px; padding: 8px; background: #fff; border: 1px dashed var(--accent); color: var(--accent); border-radius: 8px; font-weight: 600; text-align: center; width: 100%; margin-top: 8px; cursor: pointer; transition:.2s; }
+.btn-apply-all:hover { background: var(--soft); border-style: solid; }
+.btn-reset { font-size: 11px; color: var(--muted); background: none; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; }
+.btn-reset:hover { background: var(--bg); color: var(--ink); }
+.custom-size-inputs { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
+.custom-size-inputs input { flex: 1; padding: 8px; text-align: center; }
+
+.ai-box { margin-top: 4px; padding: 14px; background: var(--soft); border-radius: 10px; border: 1px solid #dcd8ff; }
+.ai-box strong { font-size: 13px; color: var(--accent); display: block; margin-bottom: 4px; }
+.ai-box span { font-size: 11px; color: #5c55a5; display: block; margin-bottom: 10px; line-height: 1.4; }
+
+/* 다크 테마 */
 :root{color-scheme:dark;--bg:#111318;--panel:#191c23;--ink:#edf0f6;--muted:#9ba3b2;--line:#303541;--accent:#9b8cff;--soft:#2a2545}
 body{background:var(--bg);color:var(--ink)}
 button{background:#20242d;color:var(--ink);border-color:var(--line)}
@@ -20,70 +58,648 @@ input[type=number],select,.savepreset input{background:#151820;color:var(--ink);
 input[type=number]:focus,select:focus,.savepreset input:focus{outline:1px solid var(--accent)}
 .platform.active{background:var(--soft);border-color:#6d61bc;color:#d0c9ff}
 .mode{border-color:var(--line)}
-.preview-modal{background:#0009}
-.preview-panel{background:#191c23;color:var(--ink);box-shadow:0 0 50px #0008}
-.preview-card{background:#1e222b;border-color:var(--line)}
-.preview-stage{background:repeating-conic-gradient(#282c36 0% 25%,#1d2028 0% 50%) 50%/18px 18px}
+.toast{background:var(--ink);color:var(--bg)}
+
+.editor-box { background: var(--bg); }
+.editor-head, .editor-sidebar, .preview-card { background: var(--panel); border-color: var(--line); }
+.preview-stage { background: repeating-conic-gradient(#282c36 0% 25%,#1d2028 0% 50%) 50%/18px 18px; border-color: var(--line); }
+.control-title { border-color: var(--line); }
+.ai-box { background: #25213b; border-color: #3b3469; }
+.ai-box span { color: #a9a2d6; }
+.btn-reset:hover { background: #2a2545; color: #fff; }
+
 @media(prefers-color-scheme:light){:root{color-scheme:dark}}
+@media(max-width:1050px){
+  .workspace{grid-template-columns:1fr}.settings{position:static;max-height:none}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.app{grid-template-columns:180px 1fr}
+  .editor-body { grid-template-columns: 1fr 280px; }
+}
+@media(max-width:800px){
+  .editor-body { grid-template-columns: 1fr; overflow-y: auto; }
+  .editor-stage-area, .editor-sidebar { overflow-y: visible; border-left: none; border-top: 1px solid var(--line); }
+  .editor-stage-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:700px){
+  .app{display:block}.side{display:none}.main{padding:18px 12px}.top{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.thumb{height:150px}.settings{margin-top:16px}.footerbar{align-items:flex-start;flex-direction:column}
+  .editor-modal { padding: 0; } .editor-box { border-radius: 0; height: 100vh; }
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- AI Auto Crop Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smartcrop/2.0.5/smartcrop.min.js"></script>
+</head><body>
+<div class="app"><aside class="side"><div class="brand">썸네일<span> 딸깍이 V9</span></div><div class="nav active">▦ &nbsp; 이미지 작업</div><div class="side-note">브라우저에서 바로 실행됩니다.<br>이미지는 기기에서 처리되며 서버로 업로드되지 않습니다.</div></aside>
+<main class="main"><header class="top"><div><div class="eyebrow">IMAGE WORKSPACE / V9.0 PRO</div><h1>썸네일 딸깍이</h1></div><div class="actions"><button id="clearBtn">전체 비우기</button><button class="primary" id="topExport" disabled>선택 이미지 내보내기 ↗</button></div></header>
+<div class="workspace"><section class="left">
 
-</style></head><body>
-<div class="app"><aside class="side"><div class="brand">썸네일<span> 딸깍이</span></div><div class="nav active">▦ &nbsp; 이미지 작업</div><div class="side-note">브라우저에서 바로 실행됩니다.<br>이미지는 기기에서 처리되며 서버로 업로드되지 않습니다.</div></aside>
-<main class="main"><header class="top"><div><div class="eyebrow">IMAGE WORKSPACE / V1.4</div><h1>썸네일 딸깍이</h1></div><div class="actions"><button id="clearBtn">전체 비우기</button><button class="primary" id="topExport" disabled>선택 이미지 내보내기 ↗</button></div></header>
-<div class="workspace"><section class="left"><div class="drop" id="drop"><div class="symbol">↥</div><strong>이미지를 여기에 끌어다 놓으세요</strong><p>여러 장을 한 번에 추가할 수 있어요 · JPG, PNG, WebP</p><button class="primary" id="browseBtn">이미지 선택</button><input id="fileInput" type="file" accept="image/*" multiple class="hidden"></div>
-<div class="toolbar"><div><strong>이미지 피드</strong> <small id="count">0개</small></div><div class="actions"><button id="selectAll">전체 선택</button><button id="viewToggle">목록 보기</button></div></div><div class="grid" id="grid"><div class="empty">아직 이미지가 없어요. 위에서 이미지를 추가해 주세요.</div></div>
-<div class="footerbar"><span id="summary">이미지를 추가하면 작업 요약이 표시됩니다.</span><button class="primary" id="exportBtn" disabled>선택 이미지 다운로드</button></div><div class="status" id="status"></div></section>
-<aside class="settings"><h2>내보내기 설정</h2><div class="group"><span class="label">플랫폼 규격</span><div class="platforms"><button class="platform active" data-w="1500" data-h="1800"><b>무신사</b>1500 × 1800</button><button class="platform" data-w="1000" data-h="1000"><b>29CM</b>1000 × 1000</button><button class="platform" data-w="1120" data-h="1120"><b>KREAM</b>1120 × 1120</button><button class="platform" data-w="0" data-h="0"><b>직접 설정</b>Custom size</button></div><div class="dimensions" style="margin-top:12px"><label class="field"><span>가로 (px)</span><input id="width" type="number" min="1" max="12000" value="1500"></label><label class="field"><span>세로 (px)</span><input id="height" type="number" min="1" max="12000" value="1800"></label></div></div>
-<div class="group"><span class="label">출력 크기 선택 · 여러 개 가능</span><div class="modes" id="multiSizes"><label class="mode"><input type="checkbox" value="1500x1800" checked><span><b>무신사 · 1500 × 1800</b><small>상품 썸네일</small></span></label><label class="mode"><input type="checkbox" value="1000x1000"><span><b>29CM · 1000 × 1000</b><small>정사각형</small></span></label><label class="mode"><input type="checkbox" value="1120x1120"><span><b>KREAM · 1120 × 1120</b><small>정사각형</small></span></label><label class="mode"><input type="checkbox" id="includeCustomSize" value="custom"><span><b>현재 직접 설정 크기</b><small>위 가로·세로 입력값 사용</small></span></label></div><div class="qualitynote">선택한 규격만 각각 생성됩니다. 최소 1개를 선택하세요.</div></div>
+  <div class="drop" id="drop"><div class="symbol">↥</div><strong>이미지를 여기에 끌어다 놓으세요</strong><p>여러 장을 한 번에 추가할 수 있어요 · JPG, PNG, WebP</p><button class="primary" id="browseBtn">이미지 선택</button><input id="fileInput" type="file" accept="image/*" multiple class="hidden"></div>
+  <div class="toolbar"><div><strong>이미지 피드</strong> <small id="count">0개</small></div><div class="actions"><button id="selectAll">전체 선택</button><button id="viewToggle">목록 보기</button></div></div><div class="grid" id="grid"><div class="empty">아직 이미지가 없어요. 위에서 이미지를 추가해 주세요.</div></div>
+  <div class="footerbar"><span id="summary">이미지를 추가하면 작업 요약이 표시됩니다.</span><button class="primary" id="exportBtn" disabled>선택 이미지 묶음 다운로드</button></div>
+</section>
+<aside class="settings"><h2>내보내기 일괄 설정</h2><div class="group"><span class="label">플랫폼 규격</span><div class="platforms"><button class="platform active" data-w="1500" data-h="1800"><b>무신사</b>1500 × 1800</button><button class="platform" data-w="1000" data-h="1000"><b>29CM</b>1000 × 1000</button><button class="platform" data-w="1120" data-h="1120"><b>KREAM</b>1120 × 1120</button><button class="platform" data-w="0" data-h="0"><b>직접 설정</b>Custom size</button></div><div class="dimensions" style="margin-top:12px"><label class="field"><span>가로 (최대 4096px)</span><input id="width" type="number" min="1" max="4096" value="1500"></label><label class="field"><span>세로 (최대 4096px)</span><input id="height" type="number" min="1" max="4096" value="1800"></label></div></div>
+<div class="group"><span class="label">출력 크기 선택 · 여러 개 가능</span><div class="modes" id="multiSizes"><label class="mode"><input type="checkbox" value="1500x1800" checked><span><b>무신사 · 1500 × 1800</b><small>상품 썸네일</small></span></label><label class="mode"><input type="checkbox" value="1000x1000"><span><b>29CM · 1000 × 1000</b><small>정사각형</small></span></label><label class="mode"><input type="checkbox" value="1120x1120"><span><b>KREAM · 1120 × 1120</b><small>정사각형</small></span></label><label class="mode"><input type="checkbox" id="includeCustomSize" value="custom"><span><b>현재 직접 설정 크기</b><small>위 가로·세로 입력값 사용</small></span></label></div><div class="qualitynote">선택한 규격만 각각 생성됩니다. 여러 장 및 여러 규격 선택 시 하나의 ZIP 파일로 압축됩니다.</div></div>
 <div class="group"><span class="label">이미지 맞춤 방식</span><div class="modes"><label class="mode"><input type="radio" name="fit" value="crop" checked><span><b>채우기 · Crop</b><small>규격에 맞게 가장자리를 잘라냅니다.</small></span></label><label class="mode"><input type="radio" name="fit" value="contain"><span><b>배경 확장 · Fit</b><small>이미지 전체를 유지하고 남는 공간은 배경색으로 채웁니다.</small></span></label></div><label class="field" style="margin-top:10px"><span>배경색 (배경 확장 시)</span><input id="bgcolor" type="color" value="#f2f2f2" style="width:100%;height:36px;border:1px solid var(--line);border-radius:8px;padding:3px;background:white"></label></div>
-
 <div class="group"><span class="label">파일 형식</span><select id="format"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></div>
-<div class="group"><label class="field"><span class="label">해상도 · DPI (Photoshop 호환 메타데이터)</span><select id="dpi"><option value="72">72 DPI · 화면용</option><option value="150">150 DPI</option><option value="300" selected>300 DPI · 인쇄용</option><option value="600">600 DPI</option></select></label><div class="qualitynote">JPG와 PNG 파일에 DPI 해상도 메타데이터를 기록합니다. 픽셀 크기 자체를 바꾸는 설정은 아닙니다. WebP는 DPI 메타데이터를 기록하지 않습니다.</div></div>
 <div class="group"><div class="rangehead"><span class="label" style="margin:0">출력 품질</span><span id="qualityValue">90%</span></div><input id="quality" type="range" min="40" max="100" value="90"><div class="qualitynote">JPG/WebP에 적용됩니다. PNG는 무손실로 저장됩니다.</div></div>
 <div class="group"><span class="label">프리셋 저장</span><div class="savepreset"><input id="presetName" placeholder="예: 무신사 기본"><button id="savePreset">저장</button></div><div id="presets" class="presetlist"></div></div></aside></div></main></div>
-<div id="previewModal" class="preview-modal hidden" role="dialog" aria-modal="true" aria-label="이미지 변환 미리보기"><section class="preview-panel"><div class="preview-head"><div><div class="eyebrow">LIVE PREVIEW</div><h2 id="previewTitle">크롭·확장 미리보기</h2></div><button id="closePreview">닫기 ✕</button></div><div class="preview-columns"><div class="preview-card"><h3>원본 이미지 · 드래그해 선택, 선택 영역을 다시 드래그해 이동</h3><div class="preview-stage original-stage" id="originalStage"><img id="previewOriginal" alt="원본"><div id="cropSelection" class="crop-selection"></div></div><div id="originalMeta" class="preview-meta"></div></div><div class="preview-card"><h3>변환 결과</h3><div class="preview-stage"><canvas id="previewCanvas"></canvas></div><div id="resultMeta" class="preview-meta"></div></div></div><div class="preview-controls"><label class="field" style="min-width:210px"><span>크롭 기준 규격</span><select id="previewSize"><option value="1500x1800">무신사 · 1500 × 1800</option><option value="1000x1000">29CM · 1000 × 1000</option><option value="1120x1120">KREAM · 1120 × 1120</option><option value="custom">직접 설정 크기</option></select></label><span>드래그로 새 영역 지정 · 영역 안을 드래그해 이동 · Shift+드래그로 다시 지정</span><button class="primary" id="previewExport">이 이미지 다운로드</button></div></section></div>
+
+<!-- Dedicated Modal Editor -->
+<div id="editorModal" class="editor-modal" role="dialog" aria-modal="true">
+  <div class="editor-box">
+    <div class="editor-head">
+      <h2 id="previewTitle"><span style="font-size:18px">◩</span> 상세 편집 모드</h2>
+      <button id="closeEditor">완료 ✕</button>
+    </div>
+    <div class="editor-body">
+      <div class="editor-stage-area">
+        <div class="editor-stage-grid">
+          <div class="preview-card">
+            <h3>원본 · 크롭 영역 조절 <small style="color:var(--muted);font-weight:400">박스 안을 드래그하여 이동</small></h3>
+            <div class="preview-stage original-stage" id="originalStage">
+              <img id="previewOriginal" alt="원본">
+              <div id="cropSelection" class="crop-selection"></div>
+            </div>
+            <div id="originalMeta" class="preview-meta"></div>
+          </div>
+          <div class="preview-card">
+            <h3>최종 결과물 <small style="color:var(--muted);font-weight:400">보정 및 리사이징 실시간 반영</small></h3>
+            <div class="preview-stage">
+              <canvas id="previewCanvas"></canvas>
+            </div>
+            <div id="resultMeta" class="preview-meta"></div>
+          </div>
+        </div>
+      </div>
+      <div class="editor-sidebar">
+        
+        <!-- Size Control -->
+        <div class="control-block">
+          <div class="control-title">
+            <span>크롭 기준 규격</span>
+            <button id="btnResetCrop" class="btn-reset">↺ 영역 초기화</button>
+          </div>
+          <select id="previewSize">
+            <option value="1500x1800">무신사 · 1500 × 1800</option>
+            <option value="1000x1000">29CM · 1000 × 1000</option>
+            <option value="1120x1120">KREAM · 1120 × 1120</option>
+            <option value="custom">직접 설정 크기</option>
+          </select>
+          <div id="customSizeInputs" class="custom-size-inputs hidden">
+            <input type="number" id="previewW" placeholder="가로" min="1" max="4096"> 
+            <span style="color:var(--muted)">×</span> 
+            <input type="number" id="previewH" placeholder="세로" min="1" max="4096">
+          </div>
+          
+          <div class="ai-box">
+            <strong>✨ AI 피사체 자동 크롭</strong>
+            <span>사진 속 인물이나 핵심 피사체를 인식하여, 지정된 규격의 한가운데로 영역을 자동 조절합니다.</span>
+            <button id="btnAutoCrop" class="btn-apply-all" style="margin:0; border-color:var(--accent); color:var(--accent);">현재 규격에 맞게 자동 크롭 실행</button>
+          </div>
+        </div>
+        
+        <!-- Filter Control -->
+        <div class="control-block">
+          <div class="control-title">
+            <span>색상 및 화질 보정</span>
+            <button id="btnResetFilters" class="btn-reset">↺ 보정 초기화</button>
+          </div>
+          <label class="filter-slider"><span>밝기</span><input type="range" id="filter-b" min="0" max="200" value="100"></label>
+          <label class="filter-slider"><span>대비</span><input type="range" id="filter-c" min="0" max="200" value="100"></label>
+          <label class="filter-slider"><span>채도</span><input type="range" id="filter-s" min="0" max="200" value="100"></label>
+          <label class="filter-slider" title="이미지의 외곽선을 선명하게 만들어줍니다.">
+            <span>선명도</span><input type="range" id="filter-sh" min="0" max="100" value="0">
+          </label>
+          <button id="applyFilterToAll" class="btn-apply-all">이 보정값을 추가된 모든 사진에 복사</button>
+        </div>
+        
+        <div style="margin-top:auto">
+          <button class="primary" style="width:100%;padding:12px;font-size:14px;font-weight:700" id="previewExport">현재 상태로 바로 다운로드</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast UI -->
+<div id="toast" class="toast">작업 완료</div>
+
 <script>
-(()=>{const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];let assets=[],selected=new Set(),listMode=false;const fileInput=$('#fileInput'),grid=$('#grid');const setStatus=t=>$('#status').textContent=t;
-function dims(){return {w:Math.max(1,Math.min(12000,parseInt($('#width').value)||1000)),h:Math.max(1,Math.min(12000,parseInt($('#height').value)||1500))}}
-function render(){ $('#count').textContent=assets.length+'개';$('#topExport').disabled=$('#exportBtn').disabled=selected.size===0||selectedSizes().length===0;$('#summary').textContent=assets.length?`${assets.length}개 이미지 · ${selected.size}개 선택 · 출력 규격 ${selectedSizes().length}개`:'이미지를 추가하면 작업 요약이 표시됩니다.';if(!assets.length){grid.innerHTML='<div class="empty">아직 이미지가 없어요. 위에서 이미지를 추가해 주세요.</div>';return}grid.style.gridTemplateColumns=listMode?'1fr':'repeat(3,minmax(0,1fr))';grid.innerHTML=assets.map(a=>`<article class="asset ${selected.has(a.id)?'selected':''}" data-id="${a.id}"><div class="thumb"><img src="${a.url}" alt=""><label class="check"><input type="checkbox" data-check="${a.id}" ${selected.has(a.id)?'checked':''}></label></div><div class="assetinfo"><div class="filename" title="${esc(a.name)}">${esc(a.name)}</div><div class="meta">${a.w} × ${a.h}px · ${formatBytes(a.size)}</div><div class="assetbuttons"><button data-preview="${a.id}">미리보기</button><button data-one="${a.id}">선택</button><button data-remove="${a.id}">삭제</button></div></div></article>`).join('');grid.querySelectorAll('[data-check]').forEach(el=>el.addEventListener('change',()=>{el.checked?selected.add(el.dataset.check):selected.delete(el.dataset.check);render()}));grid.querySelectorAll('[data-one]').forEach(el=>el.onclick=()=>{selected=new Set([el.dataset.one]);render()});grid.querySelectorAll('[data-remove]').forEach(el=>el.onclick=()=>removeAsset(el.dataset.remove));grid.querySelectorAll('[data-preview]').forEach(el=>el.onclick=()=>openPreview(el.dataset.preview));grid.querySelectorAll('.asset').forEach(el=>el.addEventListener('click',e=>{if(e.target.closest('button,label,input'))return;const id=el.dataset.id;selected.has(id)?selected.delete(id):selected.add(id);render()}));}
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];let assets=[],selected=new Set(),listMode=false;const fileInput=$('#fileInput'),grid=$('#grid');
+
+let toastTimer;
+const setStatus=t=>{
+  const toast = $('#toast');
+  toast.textContent = t;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>toast.classList.remove('show'), 3000);
+};
+
+function dims(){return {w:Math.max(1,Math.min(4096,parseInt($('#width').value)\vert{}\vert{}1000)),h:Math.max(1,Math.min(4096,parseInt($('#height').value)||1500))}}
+function defaultFilters() { return {b:100, c:100, s:100, sh:0}; } 
+
+// CSS string for live preview on the left
+function getFilterString(a) {
+  const f = a.filters || defaultFilters();
+  return `brightness(${f.b / 100}) contrast(${f.c / 100}) saturate(${f.s / 100})`;
+}
+
+// 100% Bulletproof Pixel Manipulation for Brightness, Contrast, Saturation
+function applyColorFilters(ctx, x, y, w, h, b, c, s) {
+    if(b===100 && c===100 && s===100) return;
+    const idata = ctx.getImageData(x, y, w, h);
+    const data = idata.data;
+    const b_m = b / 100;
+    const c_m = c / 100;
+    const s_m = s / 100;
+
+    for (let i = 0; i < data.length; i += 4) {
+        let r = data[i], g = data[i+1], bl = data[i+2];
+
+        // Brightness
+        r *= b_m; g *= b_m; bl *= b_m;
+
+        // Contrast
+        r = (r - 128) * c_m + 128;
+        g = (g - 128) * c_m + 128;
+        bl = (bl - 128) * c_m + 128;
+
+        // Saturation
+        const gray = 0.2126 * r + 0.7152 * g + 0.0722 * bl;
+        r = gray + (r - gray) * s_m;
+        g = gray + (g - gray) * s_m;
+        bl = gray + (bl - gray) * s_m;
+
+        data[i]   = r < 0 ? 0 : r > 255 ? 255 : r;
+        data[i+1] = g < 0 ? 0 : g > 255 ? 255 : g;
+        data[i+2] = bl < 0 ? 0 : bl > 255 ? 255 : bl;
+    }
+    ctx.putImageData(idata, x, y);
+}
+
+// Ultra-fast Canvas 3x3 Convolution for Sharpness
+function applySharpen(ctx, x, y, w, h, mix) {
+    if(mix <= 0) return;
+    const idata = ctx.getImageData(x, y, w, h);
+    const data = idata.data;
+    const w4 = w * 4;
+    const src = new Uint8Array(data); // copy original for reading
+    const center = 1 + 4 * mix;
+    for (let py = 1; py < h - 1; py++) {
+        let p = (py * w + 1) * 4;
+        for (let px = 1; px < w - 1; px++) {
+            data[p]   = src[p-w4]* -mix + src[p-4]* -mix + src[p]* center + src[p+4]* -mix + src[p+w4]* -mix;
+            data[p+1] = src[p-w4+1]* -mix + src[p-4+1]* -mix + src[p+1]* center + src[p+4+1]* -mix + src[p+w4+1]* -mix;
+            data[p+2] = src[p-w4+2]* -mix + src[p-4+2]* -mix + src[p+2]* center + src[p+4+2]* -mix + src[p+w4+2]* -mix;
+            p += 4;
+        }
+    }
+    ctx.putImageData(idata, x, y);
+}
+
+function render(){ 
+    $('#count').textContent=assets.length+'개';
+    $('#topExport').disabled=$('#exportBtn').disabled=selected.size===0||selectedSizes().length===0;
+    
+    // UI FIX: Summary Text Live Update
+    $('#summary').innerHTML=assets.length?`<b style="color:var(--ink)">${assets.length}</b>개 이미지 · <b style="color:var(--accent)">${selected.size}</b>개 선택 · 출력 규격 <b style="color:var(--accent)">${selectedSizes().length}</b>개`:'이미지를 추가하면 작업 요약이 표시됩니다.';
+    
+    if(!assets.length){grid.innerHTML='<div class="empty">아직 이미지가 없어요. 위에서 이미지를 추가해 주세요.</div>';return}
+    grid.style.gridTemplateColumns=listMode?'1fr':'repeat(3,minmax(0,1fr))';
+    
+    // UI FIX: Restored Individual Delete Button
+    grid.innerHTML=assets.map(a=>`<article class="asset ${selected.has(a.id)?'selected':''}" data-id="${a.id}"><div class="thumb"><img src="${a.url}" alt="" style="filter:${getFilterString(a)}"><label class="check"><input type="checkbox" data-check="${a.id}" ${selected.has(a.id)?'checked':''}></label></div><div class="assetinfo"><div class="filename" title="${esc(a.name)}">${esc(a.name)}</div><div class="meta">${a.w} × ${a.h}px · ${formatBytes(a.size)}</div><div class="assetbuttons"><button data-remove="${a.id}" class="btn-remove" title="삭제">✕</button><button data-preview="${a.id}" class="primary">상세 편집</button></div></div></article>`).join('');
+    
+    grid.querySelectorAll('[data-check]').forEach(el=>el.addEventListener('change',()=>{el.checked?selected.add(el.dataset.check):selected.delete(el.dataset.check);render()}));
+    grid.querySelectorAll('[data-preview]').forEach(el=>el.onclick=(e)=>{e.stopPropagation();openPreview(el.dataset.preview)});
+    grid.querySelectorAll('[data-remove]').forEach(el=>el.onclick=(e)=>{e.stopPropagation();removeAsset(el.dataset.remove)});
+    grid.querySelectorAll('.asset').forEach(el=>el.addEventListener('click',e=>{if(e.target.closest('button,label,input'))return;const id=el.dataset.id;selected.has(id)?selected.delete(id):selected.add(id);render()}));
+}
+
 function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function formatBytes(n){return n<1024?`${n} B`:n<1048576?`${(n/1024).toFixed(0)} KB`:`${(n/1048576).toFixed(1)} MB`}
-function addFiles(files){const valid=[...files].filter(f=>f.type.startsWith('image/'));if(!valid.length){setStatus('이미지 파일을 선택해 주세요.');return}let pending=valid.length;valid.forEach(file=>{const url=URL.createObjectURL(file),img=new Image();img.onload=()=>{assets.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name:file.name,size:file.size,w:img.naturalWidth,h:img.naturalHeight,url,file,crops:{}});selected.add(assets[assets.length-1].id);pending--;if(!pending){render();setStatus(`${valid.length}개 이미지를 추가했어요.`)}};img.onerror=()=>{URL.revokeObjectURL(url);pending--;if(!pending)render()};img.src=url})}
+function addFiles(files){const valid=[...files].filter(f=>f.type.startsWith('image/'));if(!valid.length){setStatus('이미지 파일을 선택해 주세요.');return}let pending=valid.length;valid.forEach(file=>{const url=URL.createObjectURL(file),img=new Image();img.onload=()=>{assets.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name:file.name,size:file.size,w:img.naturalWidth,h:img.naturalHeight,url,file,crops:{},filters:defaultFilters()});selected.add(assets[assets.length-1].id);pending--;if(!pending){render();setStatus(`${valid.length}개 이미지를 추가했어요.`)}};img.onerror=()=>{URL.revokeObjectURL(url);pending--;if(!pending)render()};img.src=url})}
 function removeAsset(id){if(previewId===id)closePreview();const a=assets.find(x=>x.id===id);if(a)URL.revokeObjectURL(a.url);assets=assets.filter(x=>x.id!==id);selected.delete(id);render()}
 $('#browseBtn').onclick=()=>fileInput.click();fileInput.onchange=e=>{addFiles(e.target.files);fileInput.value=''};const drop=$('#drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>addFiles(e.dataTransfer.files));
-$$('.platform').forEach(b=>b.onclick=()=>{$$('.platform').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(b.dataset.w!=='0'){$('#width').value=b.dataset.w;$('#height').value=b.dataset.h;const key=b.dataset.w+'x'+b.dataset.h;const cb=$(`#multiSizes input[value="${key}"]`);if(cb)cb.checked=true}else{$('#includeCustomSize').checked=true}render();if(previewId)updatePreview()});['width','height'].forEach(id=>$('#'+id).addEventListener('input',()=>{$$('.platform').forEach(b=>b.classList.toggle('active',b.dataset.w===$('#width').value&&b.dataset.h===$('#height').value));render()}));$('#quality').oninput=()=>$('#qualityValue').textContent=$('#quality').value+'%';$('#selectAll').onclick=()=>{selected=selected.size===assets.length?new Set():new Set(assets.map(a=>a.id));render()};$('#viewToggle').onclick=()=>{listMode=!listMode;$('#viewToggle').textContent=listMode?'그리드 보기':'목록 보기';render()};$('#clearBtn').onclick=()=>{assets.forEach(a=>URL.revokeObjectURL(a.url));assets=[];selected.clear();render();setStatus('이미지 목록을 비웠어요.')};
-function getPreset(){return {w:dims().w,h:dims().h,fit:$('input[name=fit]:checked').value,bg:$('#bgcolor').value,format:$('#format').value,quality:+$('#quality').value,dpi:+$('#dpi').value,sizes:[...document.querySelectorAll('#multiSizes input[type=checkbox]')].map(el=>({value:el.value,checked:el.checked}))}}
-function loadPreset(p){$('#width').value=p.w;$('#height').value=p.h;$(`input[name=fit][value="${p.fit}"]`).checked=true;$('#bgcolor').value=p.bg;$('#format').value=p.format;$('#quality').value=p.quality;$('#dpi').value=p.dpi||300;$('#qualityValue').textContent=p.quality+'%';if(p.sizes)for(const item of p.sizes){const cb=document.querySelector(`#multiSizes input[value="${item.value}"]`);if(cb)cb.checked=item.checked}$$('.platform').forEach(b=>b.classList.toggle('active',+b.dataset.w===p.w&&+b.dataset.h===p.h));render();if(previewId)updatePreview()}
-function presets(){try{return JSON.parse(localStorage.getItem('thumbstudio-presets')||'{}')}catch{return {}}}function renderPresets(){const p=presets();$('#presets').innerHTML=Object.keys(p).map(n=>`<button class="presetchip" data-preset="${esc(n)}">${esc(n)} ↗</button><button class="presetchip" data-delpreset="${esc(n)}" title="삭제">×</button>`).join('');$('#presets').querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{loadPreset(p[b.dataset.preset]);setStatus(`'${b.dataset.preset}' 프리셋을 적용했어요.`)});$('#presets').querySelectorAll('[data-delpreset]').forEach(b=>b.onclick=()=>{const p=presets();delete p[b.dataset.delpreset];localStorage.setItem('thumbstudio-presets',JSON.stringify(p));renderPresets()})}
-$('#savePreset').onclick=()=>{const name=$('#presetName').value.trim();if(!name){setStatus('프리셋 이름을 입력해 주세요.');return}const p=presets();p[name]=getPreset();localStorage.setItem('thumbstudio-presets',JSON.stringify(p));$('#presetName').value='';renderPresets();setStatus(`'${name}' 프리셋을 저장했어요.`)};
+
+$$('.platform').forEach(b=>b.onclick=()=>{$$('.platform').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(b.dataset.w!=='0'){$('#width').value=b.dataset.w;$('#height').value=b.dataset.h;const key=b.dataset.w+'x'+b.dataset.h;const cb=$(`#multiSizes input[value="${key}"]`);if(cb)cb.checked=true}else{$('#includeCustomSize').checked=true}render();if(previewId)fullUpdatePreview()});
+['width','height'].forEach(id=>$('#'+id).addEventListener('input',()=>{$$('.platform').forEach(b=>b.classList.toggle('active',b.dataset.w===$('#width').value&&b.dataset.h===$('#height').value));render()}));
+$('#quality').oninput=()=>$('#qualityValue').textContent=$('#quality').value+'%';$('#selectAll').onclick=()=>{selected=selected.size===assets.length?new Set():new Set(assets.map(a=>a.id));render()};$('#viewToggle').onclick=()=>{listMode=!listMode;$('#viewToggle').textContent=listMode?'그리드 보기':'목록 보기';render()};$('#clearBtn').onclick=()=>{assets.forEach(a=>URL.revokeObjectURL(a.url));assets=[];selected.clear();if(previewId)closePreview();render();setStatus('이미지 목록을 비웠어요.')};
+
+function getPreset(){return {w:dims().w,h:dims().h,fit:$('input[name=fit]:checked').value,bg:$('#bgcolor').value,format:$('#format').value,quality:+$('#quality').value,sizes:[...document.querySelectorAll('#multiSizes input[type=checkbox]')].map(el=>({value:el.value,checked:el.checked}))}}
+function loadPreset(p){$('#width').value=p.w;$('#height').value=p.h;$(`input[name=fit][value="${p.fit}"]`).checked=true;$('#bgcolor').value=p.bg;$('#format').value=p.format;$('#quality').value=p.quality;$('#qualityValue').textContent=p.quality+'%';if(p.sizes)for(const item of p.sizes){const cb=document.querySelector(`#multiSizes input[value="${item.value}"]`);if(cb)cb.checked=item.checked}$$('.platform').forEach(b=>b.classList.toggle('active',+b.dataset.w===p.w&&+b.dataset.h===p.h));render();if(previewId)fullUpdatePreview()}
+function presets(){try{return JSON.parse(localStorage.getItem('thumbstudio-presets-v9')||'{}')}catch{return {}}}function renderPresets(){const p=presets();$('#presets').innerHTML=Object.keys(p).map(n=>`<button class="presetchip" data-preset="${esc(n)}">${esc(n)} ↗</button><button class="presetchip" data-delpreset="${esc(n)}" title="삭제">×</button>`).join('');$('#presets').querySelectorAll('[data-preset]').forEach(b=>b.onclick=()=>{loadPreset(p[b.dataset.preset]);setStatus(`'${b.dataset.preset}' 프리셋을 적용했어요.`)});$('#presets').querySelectorAll('[data-delpreset]').forEach(b=>b.onclick=()=>{const p=presets();delete p[b.dataset.delpreset];localStorage.setItem('thumbstudio-presets-v9',JSON.stringify(p));renderPresets()})}
+$('#savePreset').onclick=()=>{const name=$('#presetName').value.trim();if(!name){setStatus('프리셋 이름을 입력해 주세요.');return}const p=presets();p[name]=getPreset();localStorage.setItem('thumbstudio-presets-v9',JSON.stringify(p));$('#presetName').value='';renderPresets();setStatus(`'${name}' 프리셋을 저장했어요.`)};
+
 function ratioKey(w,h){return (w/h).toFixed(5)}
-function sizeLabel(w,h){return `${w} × ${h}px`}
 function defaultCrop(a,w,h){const target=w/h,source=a.w/a.h;let rw=1,rh=1;if(source>target)rw=target/source;else rh=source/target;return {x:(1-rw)/2,y:(1-rh)/2,w:rw,h:rh}}
 function cropFor(a,w,h){a.crops ||= {};return a.crops[ratioKey(w,h)] || defaultCrop(a,w,h)}
 function saveCrop(a,w,h,r){a.crops ||= {};a.crops[ratioKey(w,h)]={x:r.x,y:r.y,w:r.w,h:r.h}}
-function drawImage(a,w,h,fit,bg){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');if(fit==='contain'){ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);const scale=Math.min(w/img.naturalWidth,h/img.naturalHeight),dw=img.naturalWidth*scale,dh=img.naturalHeight*scale;ctx.drawImage(img,(w-dw)/2,(h-dh)/2,dw,dh)}else{const r=cropFor(a,w,h);let sx=r.x*img.naturalWidth,sy=r.y*img.naturalHeight,sw=r.w*img.naturalWidth,sh=r.h*img.naturalHeight;const targetRatio=w/h,sourceRatio=sw/sh;if(sourceRatio>targetRatio){const nw=sh*targetRatio;sx+=(sw-nw)/2;sw=nw}else if(sourceRatio<targetRatio){const nh=sw/targetRatio;sy+=(sh-nh)/2;sh=nh}ctx.drawImage(img,sx,sy,sw,sh,0,0,w,h)}resolve(c)};img.onerror=reject;img.src=a.url})}
+
+// CORE RENDER ALGORITHM (Optimized for V9: Pixel operations applied ONLY to the final small canvas area)
+async function drawImage(a,w,h,fit,bg){
+  return new Promise((resolve,reject)=>{
+    const img=new Image();
+    img.onload=()=>{
+      let sx=0,sy=0,sw=img.naturalWidth,sh=img.naturalHeight;
+      if(fit==='crop'){
+        const r=cropFor(a,w,h);
+        sx=r.x*img.naturalWidth;
+        sy=r.y*img.naturalHeight;
+        sw=r.w*img.naturalWidth;
+        sh=r.h*img.naturalHeight;
+        
+        // Anti-Stretch Guarantee
+        const expRatio = w / h;
+        const actRatio = sw / sh;
+        if (Math.abs(expRatio - actRatio) > 0.005) {
+            if (actRatio > expRatio) {
+                const newSw = sh * expRatio;
+                sx += (sw - newSw) / 2;
+                sw = newSw;
+            } else {
+                const newSh = sw / expRatio;
+                sy += (sh - newSh) / 2;
+                sh = newSh;
+            }
+        }
+      }
+
+      const targetRatio=w/h,sourceRatio=sw/sh;
+      let drawW=w,drawH=h;
+      if(fit==='contain'){
+        if(sourceRatio>targetRatio) drawH=w/sourceRatio;
+        else drawW=h*sourceRatio;
+      }
+
+      let curW=sw,curH=sh;
+      let tempCanvas=document.createElement('canvas');
+      tempCanvas.width=curW;
+      tempCanvas.height=curH;
+      let tCtx=tempCanvas.getContext('2d');
+      
+      // Draw base image without filters
+      tCtx.drawImage(img,sx,sy,sw,sh,0,0,curW,curH);
+      
+      // Step-down for high quality anti-aliasing FIRST
+      while(curW>drawW*2 && curH>drawH*2){
+        curW=Math.floor(curW/2);
+        curH=Math.floor(curH/2);
+        const nextCanvas=document.createElement('canvas');
+        nextCanvas.width=curW;
+        nextCanvas.height=curH;
+        const nCtx=nextCanvas.getContext('2d');
+        nCtx.drawImage(tempCanvas,0,0,curW*2,curH*2,0,0,curW,curH);
+        tempCanvas=nextCanvas;
+        tCtx=nCtx;
+      }
+
+      // Final Placement Canvas
+      const finalCanvas = document.createElement('canvas');
+      finalCanvas.width = w;
+      finalCanvas.height = h;
+      const fCtx = finalCanvas.getContext('2d');
+      fCtx.imageSmoothingEnabled = true;
+      fCtx.imageSmoothingQuality = 'high';
+
+      // Draw Background (This will be protected from image filters!)
+      if(fit==='contain' || fit==='crop'){
+        fCtx.fillStyle=bg;
+        fCtx.fillRect(0,0,w,h);
+      }
+      
+      const dx=Math.floor(fit==='contain'?(w-drawW)/2:0);
+      const dy=Math.floor(fit==='contain'?(h-drawH)/2:0);
+      const intW=Math.ceil(drawW);
+      const intH=Math.ceil(drawH);
+      fCtx.drawImage(tempCanvas,0,0,curW,curH,dx,dy,intW,intH);
+      
+      // OPTIMIZATION: Apply Math Filters ONLY to the drawn image area (drastically improves speed and prevents freezing)
+      if (a.filters) {
+          applyColorFilters(fCtx, dx, dy, intW, intH, a.filters.b, a.filters.c, a.filters.s);
+      }
+      
+      // Apply Sharpness Convolution Matrix
+      if (a.filters && a.filters.sh > 0) {
+          applySharpen(fCtx, dx, dy, intW, intH, a.filters.sh / 100);
+      }
+
+      resolve(finalCanvas);
+    };
+    img.onerror=reject;
+    img.src=a.url;
+  });
+}
+
 let previewId=null;
-function previewDims(){const v=$('#previewSize').value;if(v==='custom')return dims();const [w,h]=v.split('x').map(Number);return {w,h}}
-function updateCropOverlay(){const a=assets.find(x=>x.id===previewId),img=$('#previewOriginal'),stage=$('#originalStage'),overlay=$('#cropSelection');if(!a||!img.complete||!img.naturalWidth){overlay.style.display='none';return}if($('input[name=fit]:checked').value!=='crop'){overlay.style.display='none';return}const {w,h}=previewDims(),ir=img.getBoundingClientRect(),sr=stage.getBoundingClientRect(),r=cropFor(a,w,h);overlay.style.display='block';overlay.style.left=(ir.left-sr.left+r.x*ir.width)+'px';overlay.style.top=(ir.top-sr.top+r.y*ir.height)+'px';overlay.style.width=(r.w*ir.width)+'px';overlay.style.height=(r.h*ir.height)+'px'}
-async function updatePreview(){if(!previewId)return;const a=assets.find(x=>x.id===previewId);if(!a){closePreview();return}const {w,h}=previewDims(),fit=$('input[name=fit]:checked').value,bg=$('#bgcolor').value;$('#previewTitle').textContent=a.name;const original=$('#previewOriginal');if(original.dataset.assetId!==a.id){original.dataset.assetId=a.id;original.onload=()=>{updateCropOverlay();renderPreviewCanvas()};original.src=a.url}else{updateCropOverlay();renderPreviewCanvas()}$('#originalMeta').textContent=`원본 ${a.w} × ${a.h}px · ${fit==='crop'?'규격별 크롭 영역':'전체 이미지 유지'}`;$('#resultMeta').textContent=`결과 ${w} × ${h}px · ${fit==='crop'?'선택 영역 채우기':'전체 이미지 + 배경 채움'}`}
-async function renderPreviewCanvas(){if(!previewId)return;const a=assets.find(x=>x.id===previewId);if(!a)return;const {w,h}=previewDims(),fit=$('input[name=fit]:checked').value,bg=$('#bgcolor').value;try{const rendered=await drawImage(a,w,h,fit,bg);const canvas=$('#previewCanvas');canvas.width=rendered.width;canvas.height=rendered.height;canvas.getContext('2d').drawImage(rendered,0,0);updateCropOverlay()}catch(e){setStatus('미리보기를 만들지 못했어요.')}}
-function openPreview(id){previewId=id;const sizes=selectedSizes();const chosen=sizes[0]||dims();const matching=['1500x1800','1000x1000','1120x1120'].find(v=>{const [w,h]=v.split('x').map(Number);return w===chosen.w&&h===chosen.h});$('#previewSize').value=matching||'custom';$('#previewModal').classList.remove('hidden');updatePreview()}
-function closePreview(){previewId=null;$('#previewModal').classList.add('hidden')}$('#closePreview').onclick=closePreview;$('#previewModal').addEventListener('click',e=>{if(e.target===$('#previewModal'))closePreview()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePreview()});
-// Draw a fixed-ratio crop rectangle, then drag inside it to reposition.
+function previewDims(){
+  const v=$('#previewSize').value;
+  if(v==='custom'){
+    return {
+      w: Math.max(1, Math.min(4096, parseInt($('#previewW').value)||1000)),
+      h: Math.max(1, Math.min(4096, parseInt($('#previewH').value)||1500))
+    };
+  }
+  const [w,h]=v.split('x').map(Number);
+  return {w,h};
+}
+
+function getRenderedBounds(img, stage) {
+    const ir = img.getBoundingClientRect();
+    const sr = stage.getBoundingClientRect();
+    const imgRatio = img.naturalWidth / Math.max(1, img.naturalHeight);
+    const boxRatio = ir.width / Math.max(1, ir.height);
+    let rw = ir.width, rh = ir.height, rl = ir.left, rt = ir.top;
+    
+    if (imgRatio > boxRatio) {
+        rh = ir.width / imgRatio;
+        rt = ir.top + (ir.height - rh) / 2;
+    } else {
+        rw = ir.height * imgRatio;
+        rl = ir.left + (ir.width - rw) / 2;
+    }
+    return { left: rl, top: rt, width: rw, height: rh, stageLeft: sr.left, stageTop: sr.top };
+}
+
+function updateCropOverlay(){
+    const a=assets.find(x=>x.id===previewId),img=$('#previewOriginal'),stage=$('#originalStage'),overlay=$('#cropSelection');
+    if(!a||!img.complete||!img.naturalWidth){overlay.style.display='none';return}
+    if($('input[name=fit]:checked').value!=='crop'){overlay.style.display='none';return}
+    const {w,h}=previewDims(), rb=getRenderedBounds(img, stage), r=cropFor(a,w,h);
+    overlay.style.display='block';
+    overlay.style.left=(rb.left-rb.stageLeft+r.x*rb.width)+'px';
+    overlay.style.top=(rb.top-rb.stageTop+r.y*rb.height)+'px';
+    overlay.style.width=(r.w*rb.width)+'px';
+    overlay.style.height=(r.h*rb.height)+'px';
+}
+
+function updateCSSPreviewOnly(){
+  if(!previewId)return;
+  const a=assets.find(x=>x.id===previewId);
+  if(!a)return;
+  const original=$('#previewOriginal');
+  $('#filter-b').value = a.filters.b;
+  $('#filter-c').value = a.filters.c;
+  $('#filter-s').value = a.filters.s;
+  $('#filter-sh').value = a.filters.sh || 0;
+  original.style.filter = getFilterString(a);
+}
+
+// FULL UPDATE (CSS + Canvas)
+async function fullUpdatePreview(){
+  if(!previewId)return;
+  const a=assets.find(x=>x.id===previewId);
+  if(!a){closePreview();return}
+  const {w,h}=previewDims(),fit=$('input[name=fit]:checked').value,bg=$('#bgcolor').value;
+  $('#previewTitle').innerHTML=`<span style="font-size:18px">◩</span> ${esc(a.name)}`;
+  
+  const original=$('#previewOriginal');
+  updateCSSPreviewOnly();
+  
+  // FIX: Only bind onload if the image is actually different. Removed src='' clearing from closePreview to fix the bug.
+  if(original.dataset.assetId!==a.id){
+    original.dataset.assetId=a.id;
+    original.onload=()=>{
+      updateCropOverlay();
+      triggerCanvasRender();
+    };
+    original.src=a.url;
+  }else{
+    updateCropOverlay();
+    triggerCanvasRender();
+  }
+  $('#originalMeta').textContent=`원본 ${a.w} × ${a.h}px · ${fit==='crop'?'크롭 영역 조절':'전체 유지'}`;
+  $('#resultMeta').textContent=`결과 ${w} × ${h}px · ${fit==='crop'?'크롭 반영':'여백 생성'}`;
+}
+
+let previewDebounce;
+function triggerCanvasRender() {
+  clearTimeout(previewDebounce);
+  previewDebounce = setTimeout(async () => {
+    if(!previewId) return;
+    const a = assets.find(x => x.id === previewId);
+    if(!a) return;
+    const {w,h}=previewDims(),fit=$('input[name=fit]:checked').value,bg=$('#bgcolor').value;
+    try{
+      const rendered = await drawImage(a, w, h, fit, bg);
+      const canvas = $('#previewCanvas');
+      canvas.width = rendered.width;
+      canvas.height = rendered.height;
+      canvas.getContext('2d').drawImage(rendered, 0, 0);
+      updateCropOverlay();
+    }catch(e){console.error(e);}
+  }, 100);
+}
+
+function openPreview(id){
+  previewId=id;
+  const sizes=selectedSizes();
+  const chosen=sizes[0]||dims();
+  const matching=['1500x1800','1000x1000','1120x1120'].find(v=>{const [w,h]=v.split('x').map(Number);return w===chosen.w&&h===chosen.h});
+  $('#previewSize').value=matching||'custom';
+  
+  if($('#previewSize').value === 'custom'){
+      $('#customSizeInputs').classList.remove('hidden');
+      $('#previewW').value = chosen.w;
+      $('#previewH').value = chosen.h;
+  } else {
+      $('#customSizeInputs').classList.add('hidden');
+  }
+
+  $('#editorModal').classList.add('show');
+  fullUpdatePreview();
+}
+
+// FIX: Do not clear dataset.assetId or src here to preserve browser cache and events!
+function closePreview(){
+  previewId=null;
+  $('#editorModal').classList.remove('show');
+  render(); // Refresh grid thumbnails on close
+}
+$('#closeEditor').onclick=closePreview;
+
+// Crop Interaction
 (()=>{const stage=$('#originalStage'),img=$('#previewOriginal'),overlay=$('#cropSelection');let mode=null,startX=0,startY=0,initial=null,activePointer=null;
-function bounds(){const r=img.getBoundingClientRect(),s=stage.getBoundingClientRect();return {left:r.left-s.left,top:r.top-s.top,width:r.width,height:r.height}}
+function bounds(){
+    const rb = getRenderedBounds(img, stage);
+    return { left: rb.left - rb.stageLeft, top: rb.top - rb.stageTop, width: rb.width, height: rb.height };
+}
 function clamp(v,min,max){return Math.max(min,Math.min(max,v))}
-function setRectPixels(left,top,width,height,b,w,h){const a=assets.find(z=>z.id===previewId);if(!a)return;left=clamp(left,b.left,b.left+b.width-width);top=clamp(top,b.top,b.top+b.height-height);const r={x:(left-b.left)/b.width,y:(top-b.top)/b.height,w:width/b.width,h:height/b.height};saveCrop(a,w,h,r);overlay.style.left=left+'px';overlay.style.top=top+'px';overlay.style.width=width+'px';overlay.style.height=height+'px';$('#originalMeta').textContent=`원본 ${a.w} × ${a.h}px · 영역 지정 완료`;renderPreviewCanvas()}
-stage.addEventListener('pointerdown',e=>{if(!$('input[name=fit][value="crop"]').checked||!previewId||(![img,overlay].includes(e.target)))return;const a=assets.find(z=>z.id===previewId);if(!a)return;const b=bounds(),sr=stage.getBoundingClientRect(),{w,h}=previewDims(),ratio=w/h,x=clamp(e.clientX-sr.left,b.left,b.left+b.width),y=clamp(e.clientY-sr.top,b.top,b.top+b.height),r=cropFor(a,w,h);const current={left:b.left+r.x*b.width,top:b.top+r.y*b.height,width:r.w*b.width,height:r.h*b.height};if(e.target===overlay&&!e.shiftKey&&(current.width<b.width-2||current.height<b.height-2)){mode='move';startX=x;startY=y;initial=current}else{mode='draw';startX=x;startY=y;initial={left:x,top:y,width:0,height:0};overlay.style.display='block'}activePointer=e.pointerId;stage.setPointerCapture(e.pointerId);e.preventDefault()});
+function setRectPixels(left,top,width,height,b,w,h){const a=assets.find(z=>z.id===previewId);if(!a)return;left=clamp(left,b.left,b.left+b.width-width);top=clamp(top,b.top,b.top+b.height-height);const r={x:(left-b.left)/b.width,y:(top-b.top)/b.height,w:width/b.width,h:height/b.height};saveCrop(a,w,h,r);overlay.style.left=left+'px';overlay.style.top=top+'px';overlay.style.width=width+'px';overlay.style.height=height+'px';$('#originalMeta').textContent=`원본 ${a.w} × ${a.h}px · 영역 지정 완료`;triggerCanvasRender()}
+stage.addEventListener('pointerdown',e=>{if(!$('input[name=fit][value="crop"]').checked||!previewId||(![img,overlay].includes(e.target)))return;const a=assets.find(z=>z.id===previewId);if(!a)return;const b=bounds(),sr=stage.getBoundingClientRect(),{w,h}=previewDims(),x=clamp(e.clientX-sr.left,b.left,b.left+b.width),y=clamp(e.clientY-sr.top,b.top,b.top+b.height),r=cropFor(a,w,h);const current={left:b.left+r.x*b.width,top:b.top+r.y*b.height,width:r.w*b.width,height:r.h*b.height};if(e.target===overlay&&!e.shiftKey){mode='move';startX=x;startY=y;initial=current}else{mode='draw';startX=x;startY=y;initial={left:x,top:y,width:0,height:0};overlay.style.display='block'}activePointer=e.pointerId;stage.setPointerCapture(e.pointerId);e.preventDefault()});
 stage.addEventListener('pointermove',e=>{if(!mode||activePointer!==e.pointerId)return;const b=bounds(),sr=stage.getBoundingClientRect(),{w,h}=previewDims(),ratio=w/h,x=clamp(e.clientX-sr.left,b.left,b.left+b.width),y=clamp(e.clientY-sr.top,b.top,b.top+b.height);if(mode==='move'){const left=clamp(initial.left+(x-startX),b.left,b.left+b.width-initial.width),top=clamp(initial.top+(y-startY),b.top,b.top+b.height-initial.height);setRectPixels(left,top,initial.width,initial.height,b,w,h)}else{const dx=x-startX,dy=y-startY;let width=Math.abs(dx),height=Math.abs(dy);if(width/Math.max(height,0.0001)>ratio)height=width/ratio;else width=height*ratio;width=Math.min(width,dx>=0?b.left+b.width-startX:startX-b.left);height=Math.min(height,dy>=0?b.top+b.height-startY:startY-b.top);const left=dx>=0?startX:startX-width,top=dy>=0?startY:startY-height;if(width>6&&height>6)setRectPixels(left,top,width,height,b,w,h)}});
-function stop(e){if(!mode)return;mode=null;activePointer=null;updatePreview()}stage.addEventListener('pointerup',stop);stage.addEventListener('pointercancel',stop)})();
-$('#previewSize').addEventListener('change',updatePreview);
-$('#previewExport').onclick=async()=>{if(!previewId)return;const a=assets.find(x=>x.id===previewId);if(!a)return;const {w,h}=previewDims();await exportAssets([a],[{w,h,label:'preview'}])};
-['width','height','bgcolor','format','quality','dpi'].forEach(id=>$('#'+id).addEventListener('input',()=>{if(previewId)updatePreview()}));$$('input[name=fit]').forEach(el=>el.addEventListener('change',()=>{if(previewId)updatePreview()}));
-function crc32(bytes){let c=-1;for(let i=0;i<bytes.length;i++){c^=bytes[i];for(let k=0;k<8;k++)c=(c>>>1)^((c&1)?0xEDB88320:0)}return (c^(-1))>>>0}
-function pngChunk(type,data){const te=new TextEncoder(),t=te.encode(type),out=new Uint8Array(12+data.length),v=new DataView(out.buffer);v.setUint32(0,data.length);out.set(t,4);out.set(data,8);v.setUint32(8+data.length,crc32(out.subarray(4,8+data.length)));return out}
-async function embedDpi(blob,dpi,mime){if(mime==='image/webp')return blob;const bytes=new Uint8Array(await blob.arrayBuffer());if(mime==='image/png'){const ppm=Math.round(dpi/0.0254),data=new Uint8Array(9),dv=new DataView(data.buffer);dv.setUint32(0,ppm);dv.setUint32(4,ppm);data[8]=1;const chunk=pngChunk('pHYs',data);let pos=8;while(pos+8<bytes.length){const len=new DataView(bytes.buffer,bytes.byteOffset+pos,4).getUint32(0);const type=String.fromCharCode(...bytes.subarray(pos+4,pos+8));if(type==='pHYs'){const end=pos+12+len;const out=new Uint8Array(bytes.length-(end-pos)+chunk.length);out.set(bytes.subarray(0,pos));out.set(chunk,pos);out.set(bytes.subarray(end),pos+chunk.length);return new Blob([out],{type:mime})}pos+=12+len;if(type==='IHDR')pos=pos;}const out=new Uint8Array(bytes.length+chunk.length);out.set(bytes.subarray(0,33));out.set(chunk,33);out.set(bytes.subarray(33),33+chunk.length);return new Blob([out],{type:mime})}if(mime==='image/jpeg'&&bytes[0]===0xFF&&bytes[1]===0xD8){const density=Math.max(1,Math.min(65535,Math.round(dpi))),app0=new Uint8Array([0xFF,0xE0,0x00,0x10,0x4A,0x46,0x49,0x46,0x00,0x01,0x02,0x01,0x01,density>>8,density&255,density>>8,density&255,0x00,0x00]);const out=new Uint8Array(bytes.length+app0.length);out.set(bytes.subarray(0,2));out.set(app0,2);out.set(bytes.subarray(2),2+app0.length);return new Blob([out],{type:mime})}return blob}
+
+// FIX: Attach pointer release to window so the drag doesn't get stuck if you move mouse out of bounds
+function stop(e){
+    if(!mode)return;
+    mode=null;
+    try{ if(activePointer) stage.releasePointerCapture(activePointer); } catch(err){}
+    activePointer=null;
+    fullUpdatePreview();
+}
+window.addEventListener('pointerup',stop);
+window.addEventListener('pointercancel',stop);
+})();
+
+$('#previewSize').addEventListener('change', (e) => {
+   if(e.target.value === 'custom') {
+      $('#customSizeInputs').classList.remove('hidden');
+      $('#previewW').value = $('#width').value;
+      $('#previewH').value = $('#height').value;
+   } else {
+      $('#customSizeInputs').classList.add('hidden');
+   }
+   fullUpdatePreview();
+});
+
+['previewW', 'previewH'].forEach(id => {
+   $('#'+id).addEventListener('input', fullUpdatePreview);
+});
+
+// FEATURE: AI Auto Crop using SmartCrop.js
+$('#btnAutoCrop').onclick = () => {
+    if(!previewId) return;
+    const a = assets.find(x => x.id === previewId);
+    if(!a) return;
+    const {w,h} = previewDims();
+    
+    const cropImg = new Image();
+    cropImg.onload = () => {
+        setStatus('AI가 사진 속 피사체를 분석 중입니다... 🕵️');
+        // SmartCrop logic
+        SmartCrop.crop(cropImg, {width: w, height: h}).then(result => {
+            const topCrop = result.topCrop;
+            // Convert to relative coords (0.0 - 1.0)
+            const r = {
+                x: topCrop.x / cropImg.naturalWidth,
+                y: topCrop.y / cropImg.naturalHeight,
+                w: topCrop.width / cropImg.naturalWidth,
+                h: topCrop.height / cropImg.naturalHeight
+            };
+            saveCrop(a, w, h, r);
+            
+            // Ensure Fit setting is set to 'Crop'
+            $('input[name=fit][value="crop"]').checked = true;
+            fullUpdatePreview();
+            setStatus('자동 크롭이 완료되었습니다 ✨');
+        });
+    };
+    cropImg.src = a.url;
+};
+
+// Reset Buttons
+$('#btnResetCrop').onclick = () => {
+    if(!previewId) return;
+    const a = assets.find(x => x.id === previewId);
+    if(!a) return;
+    const {w,h} = previewDims();
+    a.crops[ratioKey(w,h)] = defaultCrop(a, w, h);
+    fullUpdatePreview();
+    setStatus('크롭 영역이 초기화되었습니다.');
+};
+
+$('#btnResetFilters').onclick = () => {
+    if(!previewId) return;
+    const a = assets.find(x => x.id === previewId);
+    if(!a) return;
+    a.filters = defaultFilters();
+    fullUpdatePreview();
+    setStatus('보정값이 초기화되었습니다.');
+};
+
+// OPTIMIZATION: Filter Listeners - 'input' updates CSS only (no lag), 'change' updates Canvas
+['b', 'c', 's', 'sh'].forEach(key => {
+  const el = $('#filter-' + key);
+  el.addEventListener('input', () => {
+    if(!previewId) return;
+    const a = assets.find(x => x.id === previewId);
+    a.filters[key] = parseFloat(el.value);
+    updateCSSPreviewOnly(); // Instant feedback, zero lag
+  });
+  el.addEventListener('change', () => {
+    triggerCanvasRender(); // High quality render only when user releases mouse
+  });
+});
+
+$('#applyFilterToAll').onclick = () => {
+    if(!previewId) return;
+    const a = assets.find(x => x.id === previewId);
+    assets.forEach(img => {
+        img.filters = { ...a.filters };
+    });
+    render();
+    setStatus('현재 보정값이 모든 사진에 복사되었습니다.');
+};
+
+// UI FIX: Sync #multiSizes UI updates instantly
+$('#multiSizes').addEventListener('change', () => {
+    render();
+    if(previewId) fullUpdatePreview();
+});
+
+['bgcolor','format','quality'].forEach(id=>$('#'+id).addEventListener('input',()=>{if(previewId)fullUpdatePreview()}));
+$$('input[name=fit]').forEach(el=>el.addEventListener('change',()=>{if(previewId)fullUpdatePreview()}));
+
 function selectedSizes(){return [...document.querySelectorAll('#multiSizes input[type=checkbox]:checked')].map(el=>{if(el.value==='custom'){const d=dims();return {w:d.w,h:d.h,label:'custom'}}const [w,h]=el.value.split('x').map(Number);return {w,h,label:el.value}})}
-async function exportAssets(chosen,sizes){if(!chosen.length||!sizes.length){setStatus('이미지와 출력 규격을 각각 하나 이상 선택해 주세요.');return}const fit=$('input[name=fit]:checked').value,bg=$('#bgcolor').value,mime=$('#format').value,q=+$('#quality').value/100,dpi=+$('#dpi').value,total=chosen.length*sizes.length;let done=0,failed=0;setStatus(`내보내기 준비 중… 0/${total}`);for(const size of sizes){for(const a of chosen){try{const c=await drawImage(a,size.w,size.h,fit,bg);let blob=await new Promise(resolve=>c.toBlob(resolve,mime,q));if(!blob)throw new Error('변환 실패');blob=await embedDpi(blob,dpi,mime);const ext=mime==='image/jpeg'?'jpg':mime==='image/png'?'png':'webp';const name=a.name.replace(/\.[^.]+$/,'').replace(/[\\/:*?"<>|]/g,'_')+`_${size.w}x${size.h}.${ext}`;const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download=name;document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(link.href),2500);done++;setStatus(`내보내기 중… ${done}/${total} · ${a.name} (${size.w}×${size.h})`);await new Promise(r=>setTimeout(r,220))}catch(e){failed++;setStatus(`${a.name} ${size.w}×${size.h}: 변환 오류`)}}}setStatus(`완료: ${done}/${total}개 파일${failed?` · 실패 ${failed}개`:''}. ${mime==='image/webp'?'WebP에는 DPI 메타데이터를 기록하지 않습니다.':`${dpi} DPI 메타데이터 포함.`}`)}
+
+// JSZip Export
+async function exportAssets(chosen,sizes){
+  if(!chosen.length||!sizes.length){setStatus('이미지와 출력 규격을 각각 하나 이상 선택해 주세요.');return}
+  const fit=$('input[name=fit]:checked').value,bg=$('#bgcolor').value,mime=$('#format').value,q=+$('#quality').value/100;
+  const total=chosen.length*sizes.length;
+  let done=0,failed=0;
+  
+  const zip = new JSZip();
+  const folder = zip.folder("thumb_exports");
+  const isMultiple = total > 1;
+
+  setStatus(`내보내기 준비 중… 0/${total}`);
+  
+  for(const size of sizes){
+    for(const a of chosen){
+      try{
+        const c=await drawImage(a,size.w,size.h,fit,bg);
+        let blob=await new Promise(resolve=>c.toBlob(resolve,mime,q));
+        if(!blob)throw new Error('변환 실패');
+        
+        const ext=mime==='image/jpeg'?'jpg':mime==='image/png'?'png':'webp';
+        const name=a.name.replace(/\.[^.]+$/,'').replace(/[\/:*?"<>|]/g,'_')+`_${size.w}x${size.h}.${ext}`;
+        
+        if(isMultiple){
+          folder.file(name, blob);
+        }else{
+          const link=document.createElement('a');
+          link.href=URL.createObjectURL(blob);
+          link.download=name;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+        }
+        done++;
+        setStatus(`처리 중… ${done}/${total} · ${name}`);
+        await new Promise(r=>setTimeout(r,10));
+      }catch(e){
+        failed++;
+        setStatus(`${a.name} ${size.w}×${size.h}: 변환 오류`);
+      }
+    }
+  }
+
+  if(isMultiple && done > 0){
+    setStatus(`ZIP 파일 압축 중... 잠시만 기다려주세요.`);
+    const zipBlob = await zip.generateAsync({type:"blob"});
+    const link=document.createElement('a');
+    link.href=URL.createObjectURL(zipBlob);
+    link.download=`thumbstudio_export_${new Date().getTime()}.zip`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+  setStatus(`완료: ${done}/${total}개 파일${failed?` · 실패 ${failed}개`:''}`);
+}
+
+$('#previewExport').onclick=async()=>{if(!previewId)return;const a=assets.find(x=>x.id===previewId);if(!a)return;const {w,h}=previewDims();await exportAssets([a],[{w,h,label:'preview'}])};
 async function exportSelected(){const chosen=assets.filter(a=>selected.has(a.id)),sizes=selectedSizes();if(!sizes.length){setStatus('출력 크기를 하나 이상 선택해 주세요.');return}await exportAssets(chosen,sizes)}
-$('#exportBtn').onclick=exportSelected;$('#topExport').onclick=exportSelected;$('#multiSizes').addEventListener('change',()=>{if(previewId)updatePreview()});renderPresets();render();
+$('#exportBtn').onclick=exportSelected;$('#topExport').onclick=exportSelected;
+renderPresets();render();
 })();
 </script></body></html>
